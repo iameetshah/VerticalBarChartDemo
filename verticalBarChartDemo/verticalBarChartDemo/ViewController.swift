@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         }
         
         let barDataSet = dataSetWith(entries: barEntries,
-                                     colors: [UIColor.orange.withAlphaComponent(0.7), UIColor.black.withAlphaComponent(0.2)],
+                                     colors: [UIColor.orange.withAlphaComponent(0.7), UIColor.black.withAlphaComponent(0.1)],
                                      highlightColor: UIColor.orange.withAlphaComponent(1.0),
                                              label: "label")
 
