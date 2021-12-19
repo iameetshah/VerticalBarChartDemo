@@ -193,56 +193,37 @@ class CornerRadiusStackBarRenderer: BarChartRenderer {
             }
             
             let stackIndex = bufferIndex == 0 || bufferIndex % 2 == 0 ? 0 : 1
-            setupCorner(context: context, dataSet: dataSet, index: Int(bufferIndex / 2), stackIndex: stackIndex, barRect: barRect, border: false)
+            setupCorner(context: context, dataSet: dataSet, index: Int(bufferIndex / 2), stackIndex: stackIndex, barRect: barRect)
             
             if drawBorder {
-                
+
                 context.setStrokeColor(borderColor.cgColor)
                 context.setLineWidth(borderWidth)
-                setupCorner(context: context, dataSet: dataSet, index: index, stackIndex: stackIndex, barRect: barRect, border: true)
             }
         }
         
         context.restoreGState()
     }
-    func setupCorner(context:CGContext, dataSet: IBarChartDataSet, index: Int, stackIndex:Int, barRect:CGRect, border:Bool) {
+    func setupCorner(context:CGContext, dataSet: IBarChartDataSet, index: Int, stackIndex:Int, barRect:CGRect) {
         if let currentEntry = dataSet.entryForIndex(index) as? BarChartDataEntry {
-//            print("yValues \(currentEntry.yValues)")
             let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
             if currentEntry.yValues![stackIndex] == 0 || currentEntry.yValues![stackIndex] == 100 {
-//                print("value index\(currentEntry.yValues![stackIndex])")
                 let roundedPath = bezierPath.cgPath
                 context.addPath(roundedPath)
-                if border {
-                    context.strokePath()
-                }
-                else {
-                    context.fillPath()
-                }
+                context.fillPath()
             }
             else {
                 if stackIndex == 0 {
-                    let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                    let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
                     let roundedPath = bezierPath.cgPath
                     context.addPath(roundedPath)
-                    if border {
-                        context.strokePath()
-                    }
-                    else {
-                        context.fillPath()
-                    }
-                    
+                    context.fillPath()
                 }
                 else {
                     let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
                     let roundedPath = bezierPath.cgPath
                     context.addPath(roundedPath)
-                    if border {
-                        context.strokePath()
-                    }
-                    else {
-                        context.fillPath()
-                    }
+                    context.fillPath()
                 }
             }
         }
@@ -347,7 +328,7 @@ class CornerRadiusStackBarRenderer: BarChartRenderer {
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
                 
-                setupCorner(context: context, dataSet: set, index: Int(high.x), stackIndex: high.stackIndex, barRect: barRect, border: false)
+                setupCorner(context: context, dataSet: set, index: Int(high.x), stackIndex: high.stackIndex, barRect: barRect)
             }
         }
         

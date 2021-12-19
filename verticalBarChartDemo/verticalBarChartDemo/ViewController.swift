@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var barChartView: BarChartView!
     
     let months = ["J","F","M","A","M","J","J","A","S","O","N","D"]
-    let percentages = [52.0, 40.0, 68.0, 100.0, 0.0, 90.0, 75.0, 100.0, 20.0, 10.0, 0.0, 95.0]
+    let percentages = [52.0, 40.0, 68.0, 100.0, 0.0, 98.0, 75.0, 100.0, 20.0, 10.0, 0.0, 99.0]
 
     override func viewDidLoad() {
         super.viewDidLoad()
