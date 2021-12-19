@@ -207,12 +207,13 @@ class CornerRadiusStackBarRenderer: BarChartRenderer {
     }
     func setupCorner(context:CGContext, dataSet: IBarChartDataSet, index: Int, stackIndex:Int, barRect:CGRect, border:Bool) {
         if let currentEntry = dataSet.entryForIndex(index) as? BarChartDataEntry {
+//            print("yValues \(currentEntry.yValues)")
             let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
             if currentEntry.yValues![stackIndex] == 0 || currentEntry.yValues![stackIndex] == 100 {
+//                print("value index\(currentEntry.yValues![stackIndex])")
                 let roundedPath = bezierPath.cgPath
                 context.addPath(roundedPath)
                 if border {
-                    
                     context.strokePath()
                 }
                 else {
@@ -233,17 +234,13 @@ class CornerRadiusStackBarRenderer: BarChartRenderer {
                     
                 }
                 else {
-                    
+                    let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+                    let roundedPath = bezierPath.cgPath
+                    context.addPath(roundedPath)
                     if border {
-                        let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-                        let roundedPath = bezierPath.cgPath
-                        context.addPath(roundedPath)
                         context.strokePath()
                     }
                     else {
-                        let bezierPath = UIBezierPath(roundedRect: barRect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-                        let roundedPath = bezierPath.cgPath
-                        context.addPath(roundedPath)
                         context.fillPath()
                     }
                 }
