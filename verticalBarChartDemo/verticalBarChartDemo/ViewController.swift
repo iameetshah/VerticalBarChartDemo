@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         barChartView.extraBottomOffset = 0
         barChartView.extraRightOffset = 0
         
+        /* Renderer */
+        barChartView.renderer = CornerRadiusStackBarRenderer(dataProvider: barChartView,
+                                                             animator: barChartView.chartAnimator,
+                                                             viewPortHandler: barChartView.viewPortHandler)
         let xAxis = barChartView.xAxis
         let rightAxis = barChartView.rightAxis
         barChartView.leftAxis.enabled = false
@@ -121,5 +125,75 @@ extension ViewController: ChartViewDelegate {
                             highlight: Highlight) {
         let highlight = Highlight(x: entry.x, dataSetIndex: 0, stackIndex: 0)
         chartView.highlightValues([highlight])
+    }
+    
+}
+extension ViewController: BarChartDataProvider {
+    var barData: BarChartData? {
+        return barChartView.barData
+    }
+    
+    var isDrawBarShadowEnabled: Bool {
+        return barChartView.drawBarShadowEnabled
+    }
+    
+    var isDrawValueAboveBarEnabled: Bool {
+        return barChartView.drawValueAboveBarEnabled
+    }
+    
+    var isHighlightFullBarEnabled: Bool {
+        return barChartView.highlightFullBarEnabled
+    }
+    
+    func getTransformer(forAxis: YAxis.AxisDependency) -> Transformer {
+        return Transformer(viewPortHandler: barChartView.viewPortHandler)
+    }
+    
+    func isInverted(axis: YAxis.AxisDependency) -> Bool {
+        return barChartView.isInverted(axis: .left)
+    }
+    
+    var lowestVisibleX: Double {
+        return barChartView.lowestVisibleX
+    }
+    
+    var highestVisibleX: Double {
+        return barChartView.highestVisibleX
+    }
+    
+    var chartXMin: Double {
+        return barChartView.chartXMin
+    }
+    
+    var chartXMax: Double {
+        return barChartView.chartXMax
+    }
+    
+    var chartYMin: Double {
+        return barChartView.chartYMin
+    }
+    
+    var chartYMax: Double {
+        return barChartView.chartYMax
+    }
+    
+    var maxHighlightDistance: CGFloat {
+        return barChartView.maxHighlightDistance
+    }
+    
+    var xRange: Double {
+        return barChartView.xRange
+    }
+    
+    var centerOffsets: CGPoint {
+        return barChartView.centerOffsets
+    }
+    
+    var data: ChartData? {
+        return barChartView.data
+    }
+    
+    var maxVisibleCount: Int {
+        return barChartView.maxVisibleCount
     }
 }

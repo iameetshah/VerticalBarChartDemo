@@ -13,6 +13,7 @@
 		0CE9205A25FCEC5A008CC2AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9205825FCEC5A008CC2AB /* Main.storyboard */; };
 		0CE9205C25FCEC5C008CC2AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9205B25FCEC5C008CC2AB /* Assets.xcassets */; };
 		0CE9205F25FCEC5C008CC2AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9205D25FCEC5C008CC2AB /* LaunchScreen.storyboard */; };
+		0CE9206E25FCEEE6008CC2AB /* CornerRadiusStackBarRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE9206D25FCEEE6008CC2AB /* CornerRadiusStackBarRenderer.swift */; };
 		18317D58579EA2F67F7B7EB0 /* Pods_verticalBarChartDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8CA93149BDBD2AA95F25744 /* Pods_verticalBarChartDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		0CE9205B25FCEC5C008CC2AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CE9205E25FCEC5C008CC2AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CE9206025FCEC5C008CC2AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CE9206D25FCEEE6008CC2AB /* CornerRadiusStackBarRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStackBarRenderer.swift; sourceTree = "<group>"; };
 		58984A3956399AF89F9D2802 /* Pods-verticalBarChartDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-verticalBarChartDemo.release.xcconfig"; path = "Target Support Files/Pods-verticalBarChartDemo/Pods-verticalBarChartDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A1E8C21D1DCCFF3E460C4165 /* Pods-verticalBarChartDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-verticalBarChartDemo.debug.xcconfig"; path = "Target Support Files/Pods-verticalBarChartDemo/Pods-verticalBarChartDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C8CA93149BDBD2AA95F25744 /* Pods_verticalBarChartDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_verticalBarChartDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 		0CE9205125FCEC5A008CC2AB /* verticalBarChartDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0CE9206D25FCEEE6008CC2AB /* CornerRadiusStackBarRenderer.swift */,
 				0CE9205225FCEC5A008CC2AB /* AppDelegate.swift */,
 				0CE9205425FCEC5A008CC2AB /* SceneDelegate.swift */,
 				0CE9205625FCEC5A008CC2AB /* ViewController.swift */,
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE9206E25FCEEE6008CC2AB /* CornerRadiusStackBarRenderer.swift in Sources */,
 				0CE9205725FCEC5A008CC2AB /* ViewController.swift in Sources */,
 				0CE9205325FCEC5A008CC2AB /* AppDelegate.swift in Sources */,
 				0CE9205525FCEC5A008CC2AB /* SceneDelegate.swift in Sources */,
